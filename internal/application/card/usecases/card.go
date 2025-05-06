@@ -190,11 +190,11 @@ func (p *CardUseCase) processRetrievedCards(
 	notificationChannels []constants.NotificationChannel,
 	errChan chan error,
 ) {
-	for _, projection := range notificationCardExpiringSoonProjections {
+	for _, notificationCardExpiringSoonProjection := range notificationCardExpiringSoonProjections {
 		err := p.notificationService.NotifyCardExpiringSoon(
 			ctx,
 			notificationChannels,
-			projection,
+			notificationCardExpiringSoonProjection,
 		)
 
 		if err != nil {
