@@ -1,0 +1,48 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - cache_redis:/data
+  payments_db:
+    image: postgres:11
+    container_name: payments_db
+    restart: always
+    expose:
+      - '5432'
+    ports:
+      - '5431:5432'
+    environment:
+      - POSTGRES_DB=payments
+      - POSTGRES_USER=postgresql
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - '.db/data:/var/lib/postgresql/data'
+    healthcheck:
+      test: [ "CMD", "pg_isready -d db-name -U db-user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://dynamodb-local:8000"
+      AWS_REGION: "us-west-2"
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
+    depends_on:
+      - dynamodb-local
+volumes:
+  cache_redis:
+    driver: local
+  db_data:

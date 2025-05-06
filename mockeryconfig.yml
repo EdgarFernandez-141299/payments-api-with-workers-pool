@@ -1,0 +1,13 @@
+all: True  # Generate mocks for all interfaces
+quiet: False  # Enable logs for debugging
+outpkg: "{{.PackageName}}"  # Output the mocks in a matching package
+disable-version-string: True # Remove version strings to simplify output
+with-expecter: True  # Enable expecter based mocks if supported
+filename: "{{.InterfaceName | snakecase}}_mock.go"  # Add '_mock' to filenames
+mockname: "{{.InterfaceName}}" # Use the interface name as the mock name
+dir: "mocks/{{.PackageName}}"  # Store mocks in a structured directory
+packages:
+  "gitlab.com/clubhub.ai1/organization/backend/payments-api":
+    config:
+      recursive: True  # Include sub-packages
+      exclude-regex: ".*(_fixture|_test).*"

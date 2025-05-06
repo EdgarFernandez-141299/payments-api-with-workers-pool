@@ -1,0 +1,10 @@
+# image:
+#   tag: "current-prd"
+# # Environment variables to be injected into the container
+# envMap:
+#   SERVER_PORT: "3003"
+# externalSecrets:
+#   secrets:
+#     - key: ent_api_auth_token_value
+#       remoteKey: /secrets/app/enterprise-api
+#       property: ent_api_auth_token_value

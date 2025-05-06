@@ -1,0 +1,1 @@
+ALTER TABLE credit_card RENAME COLUMN card_id TO external_card_id;

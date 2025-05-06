@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Receipt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            padding: 32px 24px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #1f1f1f;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #555;
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .receipt {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .receipt p {
+            margin: 8px 0;
+        }
+
+        .receipt p strong {
+            color: #000;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+
+        .primary-button {
+            background-color: #e61e5c;
+            color: white;
+        }
+
+        .secondary-button {
+            background-color: white;
+            border: 1px solid #ccc;
+            color: #111;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .footer p {
+            margin: 6px 0;
+        }
+
+        .footer-icons {
+            margin-top: 12px;
+        }
+
+        .footer-icons span {
+            margin: 0 4px;
+            font-size: 16px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <img src="royal_holiday_logo.png" alt="Royal Holiday | Beyond" style="height: 48px; object-fit: contain;" />
+    </div>
+    <h2>Your payment has been processed successfully</h2>
+    <p>We’ve received your payment.</p>
+
+    <div class="receipt">
+        <p><strong>Receipt Number:</strong> {{.ReceiptNumber}}</p>
+        <p><strong>Transaction ID:</strong> {{.TransactionID}}</p>
+        <p><strong>Amount Paid:</strong> {{.AmountPaid}}</p>
+        <p><strong>Date:</strong> {{.PaymentDate}}</p>
+        <p><strong>Payment Method:</strong> {{.PaymentMethod}}</p>
+        <p><strong>Reference:</strong> {{.PaymentReference}}</p>
+    </div>
+
+    <p>This receipt and additional payment records are available for review in your member portal.</p>
+
+    <div class="footer">
+        <p>help@clubhub.ai</p>
+        <p>Clubhub LLC: 111 N Wabash Ave, Suite 1050, c/o Paragon CPA’s and Advisors, Chicago, Illinois 60602</p>
+        <div class="footer-icons">
+            <span aria-hidden="true">ⓒ</span> 2025 Clubhub
+            <span aria-hidden="true">🔗</span>
+            <span aria-hidden="true">✉️</span>
+            <span aria-hidden="true">🔒</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

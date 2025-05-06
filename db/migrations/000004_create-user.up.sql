@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS user_payment (
+  id varchar(14) PRIMARY KEY,
+  member_id varchar(14) NOT NULL,
+  email TEXT NOT NULL,
+  user_id TEXT NOT NULL,
+  token TEXT NOT NULL,
+  enterprise_id TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS credit_card (
+  id VARCHAR(14) PRIMARY KEY,
+  card_id TEXT NOT NULL,
+  user_id VARCHAR(14) NOT NULL,
+  alias TEXT NOT NULL,
+  last_four TEXT NOT NULL,
+  enterprise_id TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP,
+  CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user_payment(id)
+);

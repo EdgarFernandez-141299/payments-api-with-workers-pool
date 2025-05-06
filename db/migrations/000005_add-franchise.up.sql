@@ -1,0 +1,1 @@
+ALTER TABLE credit_card ADD COLUMN franchise TEXT;

@@ -1,0 +1,1 @@
+alter table "order" add column allow_capture boolean default false;

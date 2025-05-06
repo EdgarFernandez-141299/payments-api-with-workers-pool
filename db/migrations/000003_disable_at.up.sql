@@ -1,0 +1,1 @@
+ALTER TABLE collection_account_route ADD COLUMN disabled_at TIMESTAMP;

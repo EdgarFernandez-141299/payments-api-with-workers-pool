@@ -1,0 +1,62 @@
+image:
+  tag: "current-dev"
+envMap:
+  SERVER_HOST: "0.0.0.0"
+  SERVER_PORT: "3003"
+  SERVER_BASE_PATH: "/api"
+  APP_COUNTRY: "co"
+  APP_SERVICE_NAME: "payments-api"
+  APP_POSTFIX: "dev"
+  APP_LOGGER_DEBUG_MODE: "true"
+  DB_NAME: "payments-db"
+  DB_LOG_ENABLE: "true"
+  MEMBER_API_URL: "http://member-api.dev.clubhub.internal/api/members"
+  DEUNA_API_URL: "https://api.sandbox.deuna.io/"
+  AWS_REGION: "us-east-1"
+  DYNAMODB_ORDER_EVENT_STORE_DYNAMODB_TABLE: "use1-0-dev-payments-api-order-domain-events"
+  DYNAMODB_PAYMENT_ORDER_EVENT_STORE_DYNAMODB_TABLE: "use1-0-dev-payments-api-payment-order-domain-events"
+  ENVIRONMENT: "dev"
+  DEUNA_NOTIFY_ORDER: "https://api.dev.clubhub.ai/clubhub/integrations/proxy/v1/webhooks/deuna/notify-order"
+  OTEL_SERVICE_NAME: "payments-api"
+  APP_CLUBHUB_MAIN_HOST: "clubhub.ia"
+  BILL_API_URL: "http://clubops-orchestrator.dev.clubhub.internal"
+  DB_PORT: "5432"
+  DB_HOST: "use1-0-dev-00.rds.dev.clubhub.internal"
+  OTEL_EXPORTER: "http"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "api.honeycomb.io:443"
+  OTEL_ATTRIBUTE_VALUE_LENGTH_LIMIT: "4095"
+  TEMPORAL_HOST: "dev.uxrvb.tmprl.cloud:7233"
+  TEMPORAL_NAMESPACE: "dev.uxrvb"
+  MAIL_SERVICE_URL: "http://notification-service.dev.clubhub.local:3003"
+externalSecrets:
+  secrets:
+  - key: DB_USER
+    remoteKey: /app/dev/payments-api
+    property: db_user
+  - key: DB_PASSWORD
+    remoteKey: /app/dev/payments-api
+    property: db_password
+  - key: DEUNA_API_API_KEY
+    remoteKey: /app/dev/payments-api
+    property: deuna_api_key
+  - key: DEUNA_API_PUBLIC_KEY
+    remoteKey: /app/dev/payments-api
+    property: deuna_api_public_key
+  - key: DEUNA_API_PUBLIC_KEY_PEM
+    remoteKey: /app/dev/payments-api
+    property: deuna_api_public_pem_key
+  - key: OTEL_EXPORTER_OTLP_HEADERS_KEY
+    remoteKey: /app/dev/common
+    property: application_api_otel_key
+  - key: AWS_ACCESS_KEY_ID
+    remoteKey: /app/dev/common
+    property: aws_access_key_id
+  - key: AWS_SECRET_ACCESS_KEY
+    remoteKey: /app/dev/common
+    property: aws_secret_access_key
+  - key: TEMPORAL_RAW_KEY
+    remoteKey: /app/dev/common
+    property: temporal_raw_key
+  - key: TEMPORAL_RAW_CERT
+    remoteKey: /app/dev/common
+    property: temporal_raw_cert

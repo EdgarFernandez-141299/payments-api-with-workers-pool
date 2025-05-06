@@ -1,0 +1,1 @@
+alter table "order" drop column allow_capture
