@@ -21,8 +21,8 @@ import (
 )
 
 const (
-	cardsPerBatch = 3 // Cantidad de tarjetas por lote (batch)
-	numWorkers    = 5 // Número de workers concurrentes
+	cardsPerBatch = 3 // Number of cards per batch
+	numWorkers    = 5 // Number of concurrent workers
 )
 
 type CardUsecaseIF interface {
