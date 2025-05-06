@@ -35,7 +35,7 @@ type NotificationService interface {
 	NotifyCardExpiringSoon(
 		ctx context.Context,
 		notificationChannels []constants.NotificationChannel,
-		projection projections.NotificationCardExpiringSoonProjection,
+		notificationCardExpiringSoonProjection projections.NotificationCardExpiringSoonProjection,
 	) error
 }
 
